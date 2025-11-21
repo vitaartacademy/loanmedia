@@ -1,0 +1,1201 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Loan Media – Thiết kế & Đào tạo Đồ họa, AI</title>
+
+  <!-- Bootstrap 5 -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <!-- Google Font -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <style>
+    :root {
+      /* Tông màu hợp mệnh Kim: trắng – vàng kim – xám */
+      --lm-gold: #d4a017;      /* vàng kim dịu */
+      --lm-dark: #1f2933;      /* xám đậm, không đen tuyệt đối */
+      --lm-gray: #6b7280;
+      --lm-bg: #f5f5f5;        /* nền xám sáng */
+      --lm-white: #ffffff;
+    }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont,
+        "Segoe UI", sans-serif;
+      color: var(--lm-dark);
+      background-color: var(--lm-bg);
+    }
+
+    /* NAVBAR – nền sáng */
+    .navbar {
+      padding: 0.75rem 1rem;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
+    }
+
+    .navbar-brand {
+      font-weight: 700;
+      font-size: 1.3rem;
+      color: var(--lm-dark);
+      letter-spacing: 0.03em;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .navbar-brand img {
+      height: 36px;
+      width: auto;
+    }
+
+    .navbar-nav .nav-link {
+      color: #4b5563;
+      font-weight: 500;
+      padding: 0.45rem 0.7rem;
+      font-size: 0.9rem;              /* nhỏ lại để không rớt */
+      position: relative;
+    }
+
+    .navbar-nav .nav-link::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: 0.15rem;
+      width: 0;
+      height: 2px;
+      background: var(--lm-gold);
+      transition: all 0.25s ease;
+      transform: translateX(-50%);
+    }
+
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link.active {
+      color: var(--lm-dark);
+    }
+
+    .navbar-nav .nav-link:hover::after,
+    .navbar-nav .nav-link.active::after {
+      width: 60%;
+    }
+
+    /* HERO – nền sáng, không bị che chữ */
+    #home {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 110px; /* để chữ không bị menu che */
+      padding-bottom: 60px;
+      background: radial-gradient(circle at top left, #fff7e6, #e8edf2);
+      color: #1f2933;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      padding: 0.2rem 0.8rem;
+      border-radius: 999px;
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      font-size: 0.8rem;
+      margin-bottom: 0.8rem;
+      color: #6b7280;
+    }
+
+    .hero-title {
+      font-size: clamp(2.2rem, 4vw, 3rem);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+
+    .hero-title span {
+      color: var(--lm-gold); /* tên màu vàng kim */
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+      color: #4b5563;
+      max-width: 540px;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-typing {
+      font-weight: 500;
+      color: #374151;
+      margin-bottom: 1.5rem;
+      min-height: 1.5em;
+    }
+
+    .btn-lm-primary {
+      background: var(--lm-gold);
+      border-color: var(--lm-gold);
+      color: #111827;
+      font-weight: 600;
+      padding: 0.65rem 1.4rem;
+      border-radius: 999px;
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.16);
+      transition: all 0.25s ease;
+    }
+
+    .btn-lm-primary:hover {
+      transform: translateY(-1px) scale(1.02);
+      box-shadow: 0 18px 35px rgba(0, 0, 0, 0.3);
+      color: #111827;
+    }
+
+    .btn-lm-ghost {
+      border-radius: 999px;
+      padding: 0.65rem 1.4rem;
+      border: 1px solid #d1d5db;
+      color: #374151;
+      background: rgba(255, 255, 255, 0.7);
+      backdrop-filter: blur(8px);
+      transition: all 0.25s ease;
+    }
+
+    .btn-lm-ghost:hover {
+      background: #ffffff;
+      color: #111827;
+    }
+
+    .hero-image-wrapper {
+      position: relative;
+      max-width: 500px;
+      margin: 1.5rem auto 0;
+    }
+
+    .hero-image-main {
+      width: 100%;
+      border-radius: 24px;
+      box-shadow: 0 30px 60px rgba(15, 23, 42, 0.7);
+      object-fit: cover;
+    }
+
+    .hero-floating-card {
+      position: absolute;
+      bottom: -10%;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(15, 23, 42, 0.9);
+      color: #f9fafb;
+      padding: 0.6rem 1rem;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.6);
+    }
+
+    .hero-floating-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.3);
+    }
+
+    .hero-logo-badge {
+      position: absolute;
+      top: -16px;
+      right: -16px;
+      background: #fef3c7;
+      border-radius: 999px;
+      padding: 0.35rem 0.75rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    .hero-logo-badge img {
+      height: 26px;
+      width: auto;
+    }
+
+    .hero-logo-badge span {
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: #92400e;
+    }
+
+    /* SECTIONS CHUNG */
+    section {
+      padding: 70px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 1.2rem;
+    }
+
+    .section-title h2 {
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+
+    .section-title p {
+      color: var(--lm-gray);
+      max-width: 620px;
+      margin: 0.4rem auto 0;
+      font-size: 0.95rem;
+    }
+
+    /* ABOUT */
+    #about {
+      background: var(--lm-white);
+    }
+
+    .about-img {
+      border-radius: 24px;
+      width: 100%;
+      max-width: 360px;
+      object-fit: cover;
+      box-shadow: 0 24px 40px rgba(15, 23, 42, 0.22);
+    }
+
+    .badge-soft {
+      display: inline-block;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      background: #fef3c7;
+      color: #92400e;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .about-list {
+      list-style: none;
+      padding: 0;
+      margin: 0.75rem 0;
+    }
+
+    .about-list li::before {
+      content: "•";
+      color: var(--lm-gold);
+      font-weight: 700;
+      display: inline-block;
+      width: 1rem;
+      margin-left: 0;
+    }
+
+    .skill-bar {
+      margin-bottom: 0.65rem;
+    }
+
+    .skill-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.8rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .skill-track {
+      height: 6px;
+      border-radius: 999px;
+      background: #e5e7eb;
+      overflow: hidden;
+    }
+
+    .skill-fill {
+      height: 100%;
+      border-radius: 999px;
+      background: linear-gradient(90deg, #facc15, #f97316);
+      width: 0;
+      transition: width 1.2s ease-out;
+    }
+
+    /* CARD CHUNG */
+    .lm-card {
+      border-radius: 18px;
+      background: #ffffff;
+      border: 1px solid #e5e7eb;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.05);
+      padding: 1.4rem 1.3rem;
+      height: 100%;
+      transition: all 0.25s ease;
+    }
+
+    .lm-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
+      border-color: rgba(250, 204, 21, 0.9);
+    }
+
+    .lm-card h5 {
+      font-size: 1.1rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .lm-card p {
+      font-size: 0.9rem;
+      color: var(--lm-gray);
+    }
+
+    .lm-pill {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.25rem 0.6rem;
+      border-radius: 999px;
+      background: #eff6ff;
+      color: #1d4ed8;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.5rem;
+    }
+
+    /* CÁC SECTION KHÁC */
+    #training,
+    #design,
+    #collab {
+      background: #f9fafb;
+    }
+
+    #portfolio {
+      background: #ffffff;
+    }
+
+    .portfolio-item {
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.16);
+      height: 100%;
+    }
+
+    .portfolio-item img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      transition: transform 0.35s ease;
+    }
+
+    .portfolio-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to top,
+        rgba(15, 23, 42, 0.9),
+        rgba(15, 23, 42, 0.1)
+      );
+      opacity: 0;
+      color: #f9fafb;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1rem;
+      transition: opacity 0.25s ease;
+    }
+
+    .portfolio-item:hover img {
+      transform: scale(1.08);
+    }
+
+    .portfolio-item:hover .portfolio-overlay {
+      opacity: 1;
+    }
+
+    .portfolio-category {
+      font-size: 0.75rem;
+      opacity: 0.9;
+    }
+
+    #testimonials {
+      background: #f9fafb;
+    }
+
+    .testimonial {
+      border-radius: 16px;
+      background: #ffffff;
+      padding: 1.3rem 1.4rem;
+      border: 1px solid #e5e7eb;
+      font-size: 0.9rem;
+      color: var(--lm-gray);
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.05);
+      height: 100%;
+    }
+
+    .testimonial-name {
+      font-weight: 600;
+      color: var(--lm-dark);
+      margin-top: 0.8rem;
+    }
+
+    .testimonial-role {
+      font-size: 0.8rem;
+      color: #9ca3af;
+    }
+
+    /* CONTACT */
+    #contact {
+      background: radial-gradient(circle at top, #fefce8, #e5e7eb);
+      color: #111827;
+    }
+
+    .contact-card {
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 18px;
+      padding: 1.8rem 1.6rem;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+      border: 1px solid rgba(209, 213, 219, 0.9);
+    }
+
+    .form-control,
+    .form-select {
+      border-radius: 999px;
+      border: 1px solid #d1d5db;
+      background: #f9fafb;
+      color: #111827;
+      font-size: 0.9rem;
+    }
+
+    .form-control:focus,
+    .form-select:focus {
+      outline: none;
+      box-shadow: 0 0 0 1px var(--lm-gold);
+      border-color: var(--lm-gold);
+      background: #ffffff;
+      color: #111827;
+    }
+
+    textarea.form-control {
+      border-radius: 18px;
+    }
+
+    .contact-info-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 0.7rem;
+      font-size: 0.9rem;
+    }
+
+    .contact-info-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: var(--lm-gold);
+      margin-top: 0.4rem;
+      flex-shrink: 0;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #020617;
+      color: #9ca3af;
+      font-size: 0.8rem;
+      padding: 1rem 0;
+    }
+
+    footer a {
+      color: #e5e7eb;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: var(--lm-gold);
+    }
+
+    /* REVEAL ON SCROLL */
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease-out;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 991.98px) {
+      #home {
+        text-align: center;
+      }
+
+      .hero-image-wrapper {
+        margin-top: 2.5rem;
+      }
+
+      .about-img {
+        margin-bottom: 1.2rem;
+      }
+    }
+  </style>
+</head>
+
+<body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="80">
+  <!-- NAVBAR -->
+  <nav id="mainNav" class="navbar navbar-expand-lg navbar-light fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="#home">
+        <!-- LOGO: đổi đường dẫn cho đúng -->
+        <img src="images/logo-loan-media.png" alt="Loan Media logo" />
+        <span>Loan Media</span>
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarContent"
+        aria-controls="navbarContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" href="#home">Trang chủ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#about">Giới thiệu</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#training">Khóa học</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#design">Dịch vụ</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#portfolio">Sản phẩm</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#collab">Hợp tác</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#contact">Liên hệ</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="home">
+    <div class="container">
+      <div class="row align-items-center">
+        <!-- text -->
+        <div class="col-lg-6 reveal">
+          <div class="hero-tag">Giảng viên &amp; Freelancer thiết kế – truyền thông</div>
+          <h1 class="hero-title">
+            Xin chào, tôi là <span>Nguyễn Phương Loan</span><br />
+            Loan Media – Thiết kế &amp; Đào tạo Đồ họa, AI
+          </h1>
+          <p class="hero-subtitle">
+            Chuyên đào tạo Photoshop, Illustrator, InDesign, Premiere, After Effects,
+            thiết kế với AI cho cá nhân, nhóm nhỏ và doanh nghiệp. Đồng thời nhận
+            thiết kế truyền thông đa phương tiện phục vụ bán hàng, thương mại điện tử
+            và xây dựng thương hiệu.
+          </p>
+          <div class="hero-typing" id="heroTyping"></div>
+          <div class="d-flex flex-wrap gap-2">
+            <a href="#contact" class="btn btn-lm-primary">Đăng ký tư vấn học / thiết kế</a>
+            <a href="#portfolio" class="btn btn-lm-ghost">Xem sản phẩm thực tế</a>
+          </div>
+        </div>
+
+        <!-- image -->
+        <div class="col-lg-6 reveal">
+          <div class="hero-image-wrapper">
+            <!-- ẢNH 2 -->
+            <img
+              src="images/loan-media-hero.jpg"
+              alt="Loan Media Studio"
+              class="hero-image-main"
+            />
+            <div class="hero-logo-badge">
+              <img src="images/logo-loan-media.png" alt="Loan Media logo" />
+              <span>Loan Media Studio</span>
+            </div>
+            <div class="hero-floating-card">
+              <div class="hero-floating-dot"></div>
+              <div>
+                <div style="font-size: 0.8rem; font-weight: 600">Hơn 10 năm giảng dạy</div>
+                <div style="font-size: 0.75rem; opacity: 0.8">
+                  Đồ họa – Thương mại điện tử – Marketing số
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <div class="section-title reveal">
+        <h2>Giới thiệu</h2>
+        <p>
+          Tôi là giảng viên Thương mại điện tử &amp; Thiết kế đồ họa, đồng thời vận hành
+          Loan Media – cung cấp dịch vụ thiết kế &amp; đào tạo ứng dụng ngay cho kinh doanh thực tế.
+        </p>
+      </div>
+      <div class="row align-items-center">
+        <div class="col-lg-4 text-center mb-4 mb-lg-0 reveal">
+          <!-- ẢNH 3 -->
+          <img
+            src="images/loan-media-portrait.jpg"
+            alt="Nguyễn Phương Loan – Loan Media"
+            class="about-img"
+          />
+        </div>
+        <div class="col-lg-8 reveal">
+          <span class="badge-soft">Giảng viên – Trainer – Freelancer thiết kế</span>
+          <h3 class="mb-2">Thiết kế để bán được hàng, không chỉ để đẹp</h3>
+          <p style="font-size: 0.95rem; color: var(--lm-gray)">
+            Tôi đồng hành cùng sinh viên, chủ shop, mẹ bỉm, giáo viên và doanh nghiệp
+            trong hành trình xây dựng hình ảnh chuyên nghiệp trên môi trường số. Nội dung
+            giảng dạy luôn bám sát thực tế: banner bán hàng, hình sàn TMĐT, social media,
+            profile doanh nghiệp, video ngắn, v.v.
+          </p>
+
+          <ul class="about-list">
+            <li>Hơn 10 năm giảng dạy tại các trường cao đẳng/đại học tại TP.HCM.</li>
+            <li>Thực hiện nhiều dự án thiết kế bộ nhận diện, ấn phẩm in ấn &amp; digital.</li>
+            <li>Chuyên đào tạo “người mới bắt đầu” &amp; đội nhóm marketing nội bộ.</li>
+          </ul>
+
+          <div class="row mt-3">
+            <div class="col-md-6">
+              <div class="skill-bar">
+                <div class="skill-label">
+                  <span>Photoshop cho Marketing</span><span>90%</span>
+                </div>
+                <div class="skill-track">
+                  <div class="skill-fill" data-skill="90"></div>
+                </div>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-label">
+                  <span>Illustrator &amp; InDesign</span><span>85%</span>
+                </div>
+                <div class="skill-track">
+                  <div class="skill-fill" data-skill="85"></div>
+                </div>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-label">
+                  <span>Premiere / After Effects cơ bản</span><span>80%</span>
+                </div>
+                <div class="skill-track">
+                  <div class="skill-fill" data-skill="80"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="skill-bar">
+                <div class="skill-label">
+                  <span>Thiết kế với AI (Canva, AI hỗ trợ)</span><span>88%</span>
+                </div>
+                <div class="skill-track">
+                  <div class="skill-fill" data-skill="88"></div>
+                </div>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-label">
+                  <span>Thiết kế ấn phẩm bán hàng TMĐT</span><span>92%</span>
+                </div>
+                <div class="skill-track">
+                  <div class="skill-fill" data-skill="92"></div>
+                </div>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-label">
+                  <span>Đào tạo nhóm &amp; inhouse</span><span>90%</span>
+                </div>
+                <div class="skill-track">
+                  <div class="skill-fill" data-skill="90"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-3">
+            <a href="#training" class="btn btn-lm-primary">Xem các khóa đào tạo</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRAINING -->
+  <section id="training">
+    <div class="container">
+      <div class="section-title reveal">
+        <h2>Khóa học</h2>
+        <p>
+          Chương trình học được thiết kế linh hoạt cho từng nhóm: người mới, chủ shop, mẹ bỉm,
+          nhân viên marketing và doanh nghiệp.
+        </p>
+      </div>
+
+      <div class="row g-3">
+        <div class="col-md-4 reveal">
+          <div class="lm-card">
+            <div class="lm-pill">Nhóm / Online</div>
+            <h5>Photoshop cho Marketing &amp; Bán hàng</h5>
+            <p>
+              Học làm banner, poster, ảnh sản phẩm, ấn phẩm social phục vụ bán hàng
+              và quảng cáo. Học từ căn bản đến ứng dụng thực tế.
+            </p>
+            <ul class="about-list">
+              <li>Không cần nền tảng thiết kế trước.</li>
+              <li>Kèm file mẫu &amp; checklist thiết kế.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-4 reveal">
+          <div class="lm-card">
+            <div class="lm-pill">1:1 / Theo mục tiêu</div>
+            <h5>Coaching thiết kế cá nhân hóa</h5>
+            <p>
+              Lộ trình riêng theo mục tiêu: đi dạy, đi làm marketing, xây thương hiệu,
+              kinh doanh online hoặc chuyển nghề sang thiết kế.
+            </p>
+            <ul class="about-list">
+              <li>Học 1:1 online hoặc trực tiếp.</li>
+              <li>Tập trung chỉnh sửa sản phẩm thật của học viên.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-4 reveal">
+          <div class="lm-card">
+            <div class="lm-pill">Doanh nghiệp</div>
+            <h5>Đào tạo inhouse – Thiết kế &amp; Nội dung</h5>
+            <p>
+              Thiết kế chương trình riêng cho đội ngũ marketing, chăm sóc fanpage,
+              TMĐT, truyền thông nội bộ theo case thực tế của doanh nghiệp.
+            </p>
+            <ul class="about-list">
+              <li>Tùy chỉnh thời lượng &amp; chủ đề.</li>
+              <li>Có thể kết hợp workshop thực hành theo chiến dịch.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DESIGN SERVICES -->
+  <section id="design">
+    <div class="container">
+      <div class="section-title reveal">
+        <h2>Dịch vụ</h2>
+        <p>
+          Loan Media nhận thiết kế trọn gói hoặc theo hạng mục, ưu tiên tính ứng dụng
+          và hiệu quả truyền thông cho khách hàng.
+        </p>
+      </div>
+
+      <div class="row g-3">
+        <div class="col-md-4 reveal">
+          <div class="lm-card">
+            <div class="lm-pill">Branding</div>
+            <h5>Bộ nhận diện thương hiệu cơ bản</h5>
+            <p>
+              Logo, màu sắc, font chữ, namecard, cover fanpage và một số ấn phẩm nền tảng
+              cho thương hiệu cá nhân hoặc doanh nghiệp nhỏ.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-4 reveal">
+          <div class="lm-card">
+            <div class="lm-pill">E-commerce</div>
+            <h5>Thiết kế cho sàn TMĐT &amp; Social</h5>
+            <p>
+              Ảnh sản phẩm, banner chương trình, infographic, bộ template cho Shopee,
+              Lazada, Tiki, Facebook, Zalo, TikTok.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-4 reveal">
+          <div class="lm-card">
+            <div class="lm-pill">Multimedia</div>
+            <h5>Video ngắn &amp; ấn phẩm đa phương tiện</h5>
+            <p>
+              Video giới thiệu, video ngắn bán hàng, slide thuyết trình, brochure online
+              và các ấn phẩm hỗ trợ dạy học / đào tạo.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO -->
+  <section id="portfolio">
+    <div class="container">
+      <div class="section-title reveal">
+        <h2>Sản phẩm tiêu biểu</h2>
+        <p>
+          Một số nhóm sản phẩm thiết kế và dự án đào tạo đã thực hiện.
+          Bạn có thể yêu cầu gửi thêm portfolio chi tiết qua email hoặc Zalo.
+        </p>
+      </div>
+
+      <div class="row g-3">
+        <div class="col-md-4 reveal">
+          <div class="portfolio-item">
+            <img src="images/portfolio-ecom.jpg" alt="Thiết kế sàn TMĐT" />
+            <div class="portfolio-overlay">
+              <div class="portfolio-category">Sàn TMĐT</div>
+              <h5>Ảnh sản phẩm &amp; banner bán hàng</h5>
+              <p style="font-size: 0.8rem; opacity: 0.85">
+                Thiết kế bộ ảnh cho shop online, tối ưu hiển thị trên Shopee / Lazada /
+                Facebook.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 reveal">
+          <div class="portfolio-item">
+            <img src="images/portfolio-branding.jpg" alt="Bộ nhận diện thương hiệu" />
+            <div class="portfolio-overlay">
+              <div class="portfolio-category">Branding</div>
+              <h5>Bộ nhận diện thương hiệu cơ bản</h5>
+              <p style="font-size: 0.8rem; opacity: 0.85">
+                Logo, màu sắc, namecard, profile ngắn cho thương hiệu cá nhân &amp; SME.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 reveal">
+          <div class="portfolio-item">
+            <img src="images/portfolio-training.jpg" alt="Đào tạo thiết kế" />
+            <div class="portfolio-overlay">
+              <div class="portfolio-category">Đào tạo</div>
+              <h5>Workshop &amp; lớp học thiết kế</h5>
+              <p style="font-size: 0.8rem; opacity: 0.85">
+                Chương trình đào tạo ngắn hạn cho đội nhóm marketing, giáo viên và chủ shop.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COLLABORATION -->
+  <section id="collab">
+    <div class="container">
+      <div class="section-title reveal">
+        <h2>Hợp tác</h2>
+        <p>
+          Mỗi học viên, mỗi doanh nghiệp có mục tiêu và yêu cầu khác nhau,
+          nên Loan Media không dùng bảng giá cố định. 
+          Thay vào đó, tôi thiết kế lộ trình &amp; báo phí theo nhu cầu thực tế.
+        </p>
+      </div>
+
+      <div class="row g-3">
+        <div class="col-md-4 reveal">
+          <div class="lm-card">
+            <div class="lm-pill">Coaching 1:1</div>
+            <h5>Học kề cận theo mục tiêu riêng</h5>
+            <p>
+              Phù hợp với người muốn học nhanh, theo mục tiêu rõ: đi dạy, đi làm, 
+              xây thương hiệu cá nhân hoặc kinh doanh online.
+            </p>
+            <p style="font-size: 0.85rem; color: var(--lm-gray)">
+              Gửi nhu cầu, tôi sẽ đề xuất số buổi, nội dung chính và mức phí phù hợp.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-4 reveal">
+          <div class="lm-card">
+            <div class="lm-pill">Nhóm / Workshop</div>
+            <h5>Lớp nhỏ, học thực hành</h5>
+            <p>
+              Nhóm 3–15 người: mẹ bỉm, chủ shop, nhân viên marketing, giáo viên…
+              Nội dung tập trung vào sản phẩm thật của người học.
+            </p>
+            <p style="font-size: 0.85rem; color: var(--lm-gray)">
+              Hình thức online hoặc trực tiếp; thời lượng linh hoạt theo mục tiêu.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-4 reveal">
+          <div class="lm-card">
+            <div class="lm-pill">Doanh nghiệp</div>
+            <h5>Đào tạo inhouse &amp; thiết kế dự án</h5>
+            <p>
+              Xây chương trình đào tạo riêng cho team, hoặc nhận thiết kế theo dự án:
+              bộ nhận diện, social media, hồ sơ năng lực, video giới thiệu…
+            </p>
+            <p style="font-size: 0.85rem; color: var(--lm-gray)">
+              Gửi mô tả nhu cầu / brief, tôi sẽ tư vấn giải pháp &amp; báo phí chi tiết.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-4 reveal">
+        <p style="font-size: 0.95rem; color: var(--lm-gray)">
+          Hãy chia sẻ mục tiêu, thời gian và ngân sách dự kiến – tôi sẽ đề xuất phương án phù hợp nhất.
+        </p>
+        <a href="#contact" class="btn btn-lm-primary">Gửi yêu cầu tư vấn</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section id="testimonials">
+    <div class="container">
+      <div class="section-title reveal">
+        <h2>Cảm nhận học viên &amp; đối tác</h2>
+        <p>
+          Một vài chia sẻ ngắn từ học viên và khách hàng từng đồng hành cùng Loan Media.
+        </p>
+      </div>
+
+      <div class="row g-3">
+        <div class="col-md-4 reveal">
+          <div class="testimonial">
+            “Trước đây mình không biết gì về Photoshop, sau 6 buổi đã tự làm được
+            bộ ảnh sản phẩm cho shop online, tiết kiệm khá nhiều chi phí thuê thiết kế.”
+            <div class="testimonial-name">Chị H., chủ shop online</div>
+            <div class="testimonial-role">Khóa Photoshop cho bán hàng</div>
+          </div>
+        </div>
+        <div class="col-md-4 reveal">
+          <div class="testimonial">
+            “Lớp học nhỏ, cô giải thích dễ hiểu và sửa bài rất kỹ. 
+            Sau khóa học, mình tự tin hơn khi làm ấn phẩm social và banner chương trình.”
+            <div class="testimonial-name">Bạn T., nhân viên marketing</div>
+            <div class="testimonial-role">Lớp nhóm thiết kế marketing</div>
+          </div>
+        </div>
+        <div class="col-md-4 reveal">
+          <div class="testimonial">
+            “Chương trình đào tạo được thiết kế riêng theo case của công ty nên 
+            sau khi học xong đội ngũ áp dụng được ngay vào chiến dịch thực tế.”
+            <div class="testimonial-name">Anh N., trưởng phòng KD</div>
+            <div class="testimonial-role">Đào tạo inhouse cho doanh nghiệp</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-7 mb-4 mb-lg-0 reveal">
+          <div class="contact-card">
+            <h2 class="mb-2">Liên hệ &amp; đăng ký tư vấn</h2>
+            <p style="font-size: 0.9rem; color: #4b5563">
+              Hãy gửi cho tôi vài dòng về nhu cầu của bạn: học thiết kế, coaching 1:1,
+              đào tạo cho đội nhóm hoặc thuê thiết kế. Tôi sẽ phản hồi sớm nhất có thể.
+            </p>
+
+            <form>
+              <div class="row g-2">
+                <div class="col-sm-6">
+                  <label class="form-label small">Họ và tên</label>
+                  <input type="text" class="form-control" placeholder="Nhập họ tên của bạn" />
+                </div>
+                <div class="col-sm-6">
+                  <label class="form-label small">Email</label>
+                  <input type="email" class="form-control" placeholder="Email liên hệ" />
+                </div>
+                <div class="col-sm-6">
+                  <label class="form-label small">Số điện thoại / Zalo</label>
+                  <input type="text" class="form-control" placeholder="Số điện thoại hoặc Zalo" />
+                </div>
+                <div class="col-sm-6">
+                  <label class="form-label small">Quan tâm đến</label>
+                  <select class="form-select">
+                    <option>Chọn một mục</option>
+                    <option>Học nhóm online</option>
+                    <option>Coaching 1:1</option>
+                    <option>Đào tạo doanh nghiệp</option>
+                    <option>Thuê thiết kế</option>
+                  </select>
+                </div>
+                <div class="col-12">
+                  <label class="form-label small">Nội dung chia sẻ</label>
+                  <textarea
+                    class="form-control"
+                    rows="4"
+                    placeholder="Mô tả ngắn gọn nhu cầu, mục tiêu, thời gian dự kiến..."
+                  ></textarea>
+                </div>
+              </div>
+              <button type="submit" class="btn btn-lm-primary mt-3 w-100">
+                Gửi thông tin (form demo – chỉnh lại theo ý bạn)
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <div class="col-lg-4 offset-lg-1 d-flex align-items-center reveal">
+          <div>
+            <h5>Thông tin liên hệ nhanh</h5>
+            <div class="contact-info-item">
+              <div class="contact-info-dot"></div>
+              <div>
+                <strong>Email:</strong> yourmail@example.com<br />
+                (thay email công việc của bạn)
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-info-dot"></div>
+              <div>
+                <strong>Zalo / Điện thoại:</strong> 09xx xxx xxx<br />
+                (ghi số bạn muốn học viên/khách hàng liên hệ)
+              </div>
+            </div>
+            <div class="contact-info-item">
+              <div class="contact-info-dot"></div>
+              <div>
+                <strong>Khu vực:</strong> TP. Hồ Chí Minh – dạy online toàn quốc
+              </div>
+            </div>
+
+            <h6 class="mt-3">Kết nối mạng xã hội</h6>
+            <p style="font-size: 0.9rem">
+              Thêm link Facebook, Fanpage, YouTube hoặc TikTok của bạn tại đây.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container d-flex flex-wrap justify-content-between align-items-center">
+      <div class="mb-1">
+        © <span id="year"></span> Loan Media. All rights reserved.
+      </div>
+      <div class="mb-1">
+        Thiết kế &amp; phát triển bởi
+        <a href="#home">Loan Media</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+    // Năm footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Typing effect
+    const typingEl = document.getElementById("heroTyping");
+    const typingTexts = [
+      "Giảng viên thiết kế đồ họa & Thương mại điện tử.",
+      "Trainer Photoshop, Illustrator, InDesign, Premiere, After Effects.",
+      "Đồng hành cùng bạn trong hành trình ứng dụng AI vào thiết kế.",
+      "Freelancer thiết kế truyền thông đa phương tiện cho thương hiệu & bán hàng."
+    ];
+    let typingIndex = 0;
+    let charIndex = 0;
+    let typingForward = true;
+
+    function typeLoop() {
+      const currentText = typingTexts[typingIndex];
+
+      if (typingForward) {
+        charIndex++;
+        if (charIndex >= currentText.length) {
+          typingForward = false;
+          setTimeout(typeLoop, 1300);
+          typingEl.textContent = currentText;
+          return;
+        }
+      } else {
+        charIndex--;
+        if (charIndex <= 0) {
+          typingForward = true;
+          typingIndex = (typingIndex + 1) % typingTexts.length;
+        }
+      }
+
+      typingEl.textContent = currentText.substring(0, charIndex);
+      setTimeout(typeLoop, typingForward ? 40 : 25);
+    }
+    typeLoop();
+
+    // Reveal on scroll
+    const revealEls = document.querySelectorAll(".reveal");
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+
+            // animate skills when about in view
+            if (entry.target.id === "about" || entry.target.closest("#about")) {
+              document.querySelectorAll(".skill-fill").forEach((bar) => {
+                const value = bar.getAttribute("data-skill");
+                bar.style.width = value + "%";
+              });
+            }
+          }
+        });
+      },
+      { threshold: 0.15 }
+    );
+
+    revealEls.forEach((el) => observer.observe(el));
+
+    // Active nav link on scroll
+    const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
+
+    function setActiveNav() {
+      let fromTop = window.scrollY + 90;
+
+      navLinks.forEach((link) => {
+        const section = document.querySelector(link.getAttribute("href"));
+        if (!section) return;
+
+        if (
+          section.offsetTop <= fromTop &&
+          section.offsetTop + section.offsetHeight > fromTop
+        ) {
+          navLinks.forEach((l) => l.classList.remove("active"));
+          link.classList.add("active");
+        }
+      });
+    }
+
+    window.addEventListener("scroll", setActiveNav);
+    document.addEventListener("DOMContentLoaded", setActiveNav);
+  </script>
+</body>
+</html>
