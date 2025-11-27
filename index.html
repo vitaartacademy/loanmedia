@@ -2,1201 +2,1187 @@
 <html lang="vi">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Loan Media – Thiết kế & Đào tạo Đồ họa, AI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vita Marketing AI – AI Marketing cho Doanh Nghiệp</title>
 
-  <!-- Bootstrap 5 -->
-  <link
-    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-    rel="stylesheet"
-  />
-
-  <!-- Google Font -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet"
-  />
+  <meta name="description" content="Vita Marketing AI - Đào tạo & tư vấn AI Marketing cho doanh nghiệp nhỏ, spa, trung tâm: AI Marketing Thực Chiến, Thương Hiệu & Hệ Thống, Tự Động Hóa Marketing - Mentoring 1:1." />
+  <meta name="keywords" content="AI Marketing, AI cho doanh nghiệp, khóa học AI Marketing, tự động hóa marketing, xây dựng thương hiệu bằng AI" />
 
   <style>
     :root {
-      /* Tông màu hợp mệnh Kim: trắng – vàng kim – xám */
-      --lm-gold: #d4a017;      /* vàng kim dịu */
-      --lm-dark: #1f2933;      /* xám đậm, không đen tuyệt đối */
-      --lm-gray: #6b7280;
-      --lm-bg: #f5f5f5;        /* nền xám sáng */
-      --lm-white: #ffffff;
+      --primary: #2563eb;
+      --primary-dark: #1d4ed8;
+      --accent: #f97316;
+      --bg: #020617;
+      --card-bg: #0b1220;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: #1f2937;
+      --radius-lg: 18px;
+      --radius-xl: 26px;
+      --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.8);
     }
 
     * {
       box-sizing: border-box;
-      scroll-behavior: smooth;
+      margin: 0;
+      padding: 0;
     }
 
     body {
-      font-family: "Poppins", system-ui, -apple-system, BlinkMacSystemFont,
-        "Segoe UI", sans-serif;
-      color: var(--lm-dark);
-      background-color: var(--lm-bg);
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #1e293b 0, #020617 50%, #020617 100%);
+      color: var(--text);
+      line-height: 1.6;
     }
 
-    /* NAVBAR – nền sáng */
-    .navbar {
-      padding: 0.75rem 1rem;
-      background: rgba(255, 255, 255, 0.96);
-      backdrop-filter: blur(12px);
-      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.06);
-    }
-
-    .navbar-brand {
-      font-weight: 700;
-      font-size: 1.3rem;
-      color: var(--lm-dark);
-      letter-spacing: 0.03em;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .navbar-brand img {
-      height: 36px;
-      width: auto;
-    }
-
-    .navbar-nav .nav-link {
-      color: #4b5563;
-      font-weight: 500;
-      padding: 0.45rem 0.7rem;
-      font-size: 0.9rem;              /* nhỏ lại để không rớt */
-      position: relative;
-    }
-
-    .navbar-nav .nav-link::after {
-      content: "";
-      position: absolute;
-      left: 50%;
-      bottom: 0.15rem;
-      width: 0;
-      height: 2px;
-      background: var(--lm-gold);
-      transition: all 0.25s ease;
-      transform: translateX(-50%);
-    }
-
-    .navbar-nav .nav-link:hover,
-    .navbar-nav .nav-link.active {
-      color: var(--lm-dark);
-    }
-
-    .navbar-nav .nav-link:hover::after,
-    .navbar-nav .nav-link.active::after {
-      width: 60%;
-    }
-
-    /* HERO – nền sáng, không bị che chữ */
-    #home {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      padding-top: 110px; /* để chữ không bị menu che */
-      padding-bottom: 60px;
-      background: radial-gradient(circle at top left, #fff7e6, #e8edf2);
-      color: #1f2933;
-    }
-
-    .hero-tag {
-      display: inline-block;
-      padding: 0.2rem 0.8rem;
-      border-radius: 999px;
-      background: #ffffff;
-      border: 1px solid #e5e7eb;
-      font-size: 0.8rem;
-      margin-bottom: 0.8rem;
-      color: #6b7280;
-    }
-
-    .hero-title {
-      font-size: clamp(2.2rem, 4vw, 3rem);
-      font-weight: 700;
-      line-height: 1.15;
-      margin-bottom: 1rem;
-    }
-
-    .hero-title span {
-      color: var(--lm-gold); /* tên màu vàng kim */
-    }
-
-    .hero-subtitle {
-      font-size: 1rem;
-      color: #4b5563;
-      max-width: 540px;
-      margin-bottom: 1.2rem;
-    }
-
-    .hero-typing {
-      font-weight: 500;
-      color: #374151;
-      margin-bottom: 1.5rem;
-      min-height: 1.5em;
-    }
-
-    .btn-lm-primary {
-      background: var(--lm-gold);
-      border-color: var(--lm-gold);
-      color: #111827;
-      font-weight: 600;
-      padding: 0.65rem 1.4rem;
-      border-radius: 999px;
-      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.16);
-      transition: all 0.25s ease;
-    }
-
-    .btn-lm-primary:hover {
-      transform: translateY(-1px) scale(1.02);
-      box-shadow: 0 18px 35px rgba(0, 0, 0, 0.3);
-      color: #111827;
-    }
-
-    .btn-lm-ghost {
-      border-radius: 999px;
-      padding: 0.65rem 1.4rem;
-      border: 1px solid #d1d5db;
-      color: #374151;
-      background: rgba(255, 255, 255, 0.7);
-      backdrop-filter: blur(8px);
-      transition: all 0.25s ease;
-    }
-
-    .btn-lm-ghost:hover {
-      background: #ffffff;
-      color: #111827;
-    }
-
-    .hero-image-wrapper {
-      position: relative;
-      max-width: 500px;
-      margin: 1.5rem auto 0;
-    }
-
-    .hero-image-main {
-      width: 100%;
-      border-radius: 24px;
-      box-shadow: 0 30px 60px rgba(15, 23, 42, 0.7);
-      object-fit: cover;
-    }
-
-    .hero-floating-card {
-      position: absolute;
-      bottom: -10%;
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(15, 23, 42, 0.9);
-      color: #f9fafb;
-      padding: 0.6rem 1rem;
-      border-radius: 999px;
-      font-size: 0.8rem;
-      display: flex;
-      align-items: center;
-      gap: 0.6rem;
-      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.6);
-    }
-
-    .hero-floating-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: #22c55e;
-      box-shadow: 0 0 0 4px rgba(34, 197, 94, 0.3);
-    }
-
-    .hero-logo-badge {
-      position: absolute;
-      top: -16px;
-      right: -16px;
-      background: #fef3c7;
-      border-radius: 999px;
-      padding: 0.35rem 0.75rem;
-      display: flex;
-      align-items: center;
-      gap: 0.4rem;
-      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
-    }
-
-    .hero-logo-badge img {
-      height: 26px;
-      width: auto;
-    }
-
-    .hero-logo-badge span {
-      font-size: 0.75rem;
-      font-weight: 600;
-      color: #92400e;
-    }
-
-    /* SECTIONS CHUNG */
-    section {
-      padding: 70px 0;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 1.2rem;
-    }
-
-    .section-title h2 {
-      font-size: 1.8rem;
-      font-weight: 700;
-    }
-
-    .section-title p {
-      color: var(--lm-gray);
-      max-width: 620px;
-      margin: 0.4rem auto 0;
-      font-size: 0.95rem;
-    }
-
-    /* ABOUT */
-    #about {
-      background: var(--lm-white);
-    }
-
-    .about-img {
-      border-radius: 24px;
-      width: 100%;
-      max-width: 360px;
-      object-fit: cover;
-      box-shadow: 0 24px 40px rgba(15, 23, 42, 0.22);
-    }
-
-    .badge-soft {
-      display: inline-block;
-      padding: 0.25rem 0.7rem;
-      border-radius: 999px;
-      background: #fef3c7;
-      color: #92400e;
-      font-size: 0.75rem;
-      font-weight: 600;
-      margin-bottom: 0.5rem;
-    }
-
-    .about-list {
-      list-style: none;
-      padding: 0;
-      margin: 0.75rem 0;
-    }
-
-    .about-list li::before {
-      content: "•";
-      color: var(--lm-gold);
-      font-weight: 700;
-      display: inline-block;
-      width: 1rem;
-      margin-left: 0;
-    }
-
-    .skill-bar {
-      margin-bottom: 0.65rem;
-    }
-
-    .skill-label {
-      display: flex;
-      justify-content: space-between;
-      font-size: 0.8rem;
-      margin-bottom: 0.25rem;
-    }
-
-    .skill-track {
-      height: 6px;
-      border-radius: 999px;
-      background: #e5e7eb;
-      overflow: hidden;
-    }
-
-    .skill-fill {
-      height: 100%;
-      border-radius: 999px;
-      background: linear-gradient(90deg, #facc15, #f97316);
-      width: 0;
-      transition: width 1.2s ease-out;
-    }
-
-    /* CARD CHUNG */
-    .lm-card {
-      border-radius: 18px;
-      background: #ffffff;
-      border: 1px solid #e5e7eb;
-      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.05);
-      padding: 1.4rem 1.3rem;
-      height: 100%;
-      transition: all 0.25s ease;
-    }
-
-    .lm-card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.12);
-      border-color: rgba(250, 204, 21, 0.9);
-    }
-
-    .lm-card h5 {
-      font-size: 1.1rem;
-      margin-bottom: 0.4rem;
-    }
-
-    .lm-card p {
-      font-size: 0.9rem;
-      color: var(--lm-gray);
-    }
-
-    .lm-pill {
-      display: inline-flex;
-      align-items: center;
-      padding: 0.25rem 0.6rem;
-      border-radius: 999px;
-      background: #eff6ff;
-      color: #1d4ed8;
-      font-size: 0.7rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      margin-bottom: 0.5rem;
-    }
-
-    /* CÁC SECTION KHÁC */
-    #training,
-    #design,
-    #collab {
-      background: #f9fafb;
-    }
-
-    #portfolio {
-      background: #ffffff;
-    }
-
-    .portfolio-item {
-      border-radius: 16px;
-      overflow: hidden;
-      position: relative;
-      cursor: pointer;
-      box-shadow: 0 14px 30px rgba(15, 23, 42, 0.16);
-      height: 100%;
-    }
-
-    .portfolio-item img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-      transition: transform 0.35s ease;
-    }
-
-    .portfolio-overlay {
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(
-        to top,
-        rgba(15, 23, 42, 0.9),
-        rgba(15, 23, 42, 0.1)
-      );
-      opacity: 0;
-      color: #f9fafb;
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      padding: 1rem;
-      transition: opacity 0.25s ease;
-    }
-
-    .portfolio-item:hover img {
-      transform: scale(1.08);
-    }
-
-    .portfolio-item:hover .portfolio-overlay {
-      opacity: 1;
-    }
-
-    .portfolio-category {
-      font-size: 0.75rem;
-      opacity: 0.9;
-    }
-
-    #testimonials {
-      background: #f9fafb;
-    }
-
-    .testimonial {
-      border-radius: 16px;
-      background: #ffffff;
-      padding: 1.3rem 1.4rem;
-      border: 1px solid #e5e7eb;
-      font-size: 0.9rem;
-      color: var(--lm-gray);
-      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.05);
-      height: 100%;
-    }
-
-    .testimonial-name {
-      font-weight: 600;
-      color: var(--lm-dark);
-      margin-top: 0.8rem;
-    }
-
-    .testimonial-role {
-      font-size: 0.8rem;
-      color: #9ca3af;
-    }
-
-    /* CONTACT */
-    #contact {
-      background: radial-gradient(circle at top, #fefce8, #e5e7eb);
-      color: #111827;
-    }
-
-    .contact-card {
-      background: rgba(255, 255, 255, 0.95);
-      border-radius: 18px;
-      padding: 1.8rem 1.6rem;
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
-      border: 1px solid rgba(209, 213, 219, 0.9);
-    }
-
-    .form-control,
-    .form-select {
-      border-radius: 999px;
-      border: 1px solid #d1d5db;
-      background: #f9fafb;
-      color: #111827;
-      font-size: 0.9rem;
-    }
-
-    .form-control:focus,
-    .form-select:focus {
-      outline: none;
-      box-shadow: 0 0 0 1px var(--lm-gold);
-      border-color: var(--lm-gold);
-      background: #ffffff;
-      color: #111827;
-    }
-
-    textarea.form-control {
-      border-radius: 18px;
-    }
-
-    .contact-info-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 0.75rem;
-      margin-bottom: 0.7rem;
-      font-size: 0.9rem;
-    }
-
-    .contact-info-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 999px;
-      background: var(--lm-gold);
-      margin-top: 0.4rem;
-      flex-shrink: 0;
-    }
-
-    /* FOOTER */
-    footer {
-      background: #020617;
-      color: #9ca3af;
-      font-size: 0.8rem;
-      padding: 1rem 0;
-    }
-
-    footer a {
-      color: #e5e7eb;
+    a {
+      color: inherit;
       text-decoration: none;
     }
 
-    footer a:hover {
-      color: var(--lm-gold);
+    img {
+      max-width: 100%;
+      display: block;
     }
 
-    /* REVEAL ON SCROLL */
-    .reveal {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.6s ease-out;
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.2rem;
     }
 
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
+    /* HEADER */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      backdrop-filter: blur(16px);
+      background: linear-gradient(to bottom, rgba(15,23,42,0.95), rgba(15,23,42,0.8));
+      border-bottom: 1px solid rgba(148,163,184,0.25);
     }
 
-    @media (max-width: 991.98px) {
-      #home {
-        text-align: center;
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.8rem 0;
+      gap: 0.8rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .brand-logo {
+      width: 38px;
+      height: 38px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 20% 0, #f97316, #2563eb);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 0.95rem;
+      color: #f9fafb;
+      box-shadow: 0 8px 24px rgba(15,23,42,0.7);
+    }
+
+    .brand-text-main {
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      font-size: 0.95rem;
+      text-transform: uppercase;
+    }
+
+    .brand-text-sub {
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.4rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      position: relative;
+      padding-bottom: 0.1rem;
+    }
+
+    .nav-links a:hover {
+      color: #e5e7eb;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -0.2rem;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(to right, var(--primary), var(--accent));
+      transition: width 0.18s;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      display: flex;
+      gap: 0.6rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.55rem 1.1rem;
+      border-radius: 999px;
+      font-size: 0.86rem;
+      font-weight: 500;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: all 0.18s ease-out;
+      white-space: nowrap;
+    }
+
+    .btn-outline {
+      border-color: rgba(148,163,184,0.6);
+      color: var(--muted);
+      background: transparent;
+    }
+
+    .btn-outline:hover {
+      border-color: #e5e7eb;
+      color: #e5e7eb;
+      background: rgba(15,23,42,0.7);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: #f9fafb;
+      box-shadow: 0 14px 30px rgba(37,99,235,0.45);
+    }
+
+    .btn-primary:hover {
+      filter: brightness(1.05);
+      transform: translateY(-1px);
+      box-shadow: 0 18px 40px rgba(37,99,235,0.55);
+    }
+
+    /* HERO */
+    .hero {
+      padding: 2.4rem 0 2.2rem;
+    }
+
+    .hero-inner {
+      display: grid;
+      grid-template-columns: minmax(0,1.4fr) minmax(0,1fr);
+      gap: 2.2rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.16rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.4);
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 0.8rem;
+      background: rgba(15,23,42,0.7);
+    }
+
+    .eyebrow-badge {
+      width: 18px;
+      height: 18px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: #f9fafb;
+    }
+
+    .hero-title {
+      font-size: clamp(1.9rem, 3.3vw, 2.6rem);
+      font-weight: 750;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.8rem;
+    }
+
+    .hero-title span.gradient {
+      background: linear-gradient(to right, #60a5fa, #a855f7, #f97316);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .hero-subtitle {
+      font-size: 0.98rem;
+      color: var(--muted);
+      max-width: 34rem;
+      margin-bottom: 1.3rem;
+    }
+
+    .hero-highlight {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      font-size: 0.84rem;
+      color: #cbd5f5;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-highlight span {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      padding: 0.25rem 0.65rem;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.9);
+      border: 1px solid rgba(148,163,184,0.4);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.3rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    .hero-meta-item strong {
+      display: block;
+      font-size: 0.9rem;
+      color: #e5e7eb;
+    }
+
+    .hero-right {
+      position: relative;
+    }
+
+    .hero-card {
+      background: radial-gradient(circle at top, #1d2537 0, #020617 55%);
+      border-radius: var(--radius-xl);
+      border: 1px solid rgba(148,163,184,0.25);
+      padding: 1.4rem 1.3rem;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-glow {
+      position: absolute;
+      inset: -60%;
+      background: radial-gradient(circle at 0% 0%, rgba(96,165,250,0.14), transparent 55%),
+                  radial-gradient(circle at 100% 100%, rgba(248,113,113,0.11), transparent 55%);
+      opacity: 0.8;
+      pointer-events: none;
+    }
+
+    .hero-chip-row {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      margin-bottom: 1rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-chip {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.45rem 0.7rem;
+      border-radius: 999px;
+      background: rgba(15,23,42,0.85);
+      border: 1px solid rgba(148,163,184,0.3);
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .hero-chip span.label {
+      font-weight: 500;
+      color: #e5e7eb;
+    }
+
+    .hero-levels {
+      margin-top: 0.4rem;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-levels-title {
+      font-size: 0.9rem;
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+    }
+
+    .hero-levels-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 0.5rem;
+      font-size: 0.78rem;
+    }
+
+    .hero-level-pill {
+      border-radius: 999px;
+      padding: 0.45rem 0.7rem;
+      background: rgba(15,23,42,0.9);
+      border: 1px solid rgba(148,163,184,0.55);
+      text-align: center;
+      white-space: normal;   /* cho phép xuống dòng */
+      line-height: 1.3;
+    }
+
+    .hero-level-pill strong {
+      display: block;
+      margin-bottom: 2px;
+      font-size: 0.8rem;
+    }
+
+    .hero-level-pill span {
+      display: block;
+      font-size: 0.78rem;
+    }
+
+    /* SECTION CHUNG */
+    section {
+      padding: 2.2rem 0;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 1rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .section-title {
+      font-size: 1.15rem;
+      font-weight: 650;
+    }
+
+    .section-sub {
+      font-size: 0.85rem;
+      color: var(--muted);
+      max-width: 24rem;
+    }
+
+    /* CARDS CHƯƠNG TRÌNH */
+    .programs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap: 1rem;
+    }
+
+    .card {
+      background: rgba(15,23,42,0.9);
+      border-radius: var(--radius-lg);
+      border: 1px solid rgba(148,163,184,0.28);
+      padding: 1rem 1rem 1.1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      box-shadow: 0 18px 40px rgba(15,23,42,0.6);
+    }
+
+    .card-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.18rem 0.7rem;
+      border-radius: 999px;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      border: 1px solid rgba(148,163,184,0.5);
+      color: var(--muted);
+    }
+
+    .card-title {
+      font-size: 0.98rem;
+      font-weight: 600;
+    }
+
+    .card-desc {
+      font-size: 0.84rem;
+      color: var(--muted);
+    }
+
+    .card-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem 1rem;
+      font-size: 0.8rem;
+      color: #cbd5f5;
+    }
+
+    .card-footer {
+      margin-top: 0.6rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .price {
+      font-weight: 600;
+      font-size: 0.96rem;
+      color: #fbbf24;
+    }
+
+    .price small {
+      display: block;
+      font-size: 0.7rem;
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    /* WHY SECTION */
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 1.6rem;
+    }
+
+    .why-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 0.9rem;
+      font-size: 0.85rem;
+    }
+
+    .why-item {
+      padding: 0.7rem 0.75rem;
+      border-radius: 0.9rem;
+      border: 1px solid rgba(148,163,184,0.4);
+      background: rgba(15,23,42,0.85);
+    }
+
+    .why-item strong {
+      display: block;
+      margin-bottom: 0.2rem;
+      font-size: 0.9rem;
+    }
+
+    .badge-soft {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.28rem 0.68rem;
+      border-radius: 999px;
+      background: rgba(37,99,235,0.1);
+      border: 1px solid rgba(37,99,235,0.4);
+      font-size: 0.78rem;
+      color: #bfdbfe;
+      margin-bottom: 0.6rem;
+    }
+
+    .process-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      font-size: 0.84rem;
+      color: var(--muted);
+    }
+
+    .process-step {
+      display: flex;
+      gap: 0.6rem;
+      align-items: flex-start;
+    }
+
+    .process-number {
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      border: 1px solid rgba(148,163,184,0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.72rem;
+      color: #e5e7eb;
+      flex-shrink: 0;
+    }
+
+    /* FORM ĐĂNG KÝ */
+    .cta-box {
+      border-radius: var(--radius-xl);
+      padding: 1.5rem 1.4rem;
+      border: 1px solid rgba(148,163,184,0.45);
+      background: radial-gradient(circle at 0 0, rgba(59,130,246,0.2), transparent 55%),
+                  radial-gradient(circle at 100% 100%, rgba(248,113,113,0.18), transparent 55%),
+                  rgba(15,23,42,0.96);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1.2rem;
+    }
+/* CỘT TRÁI chứa text + khối trust */
+.cta-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  max-width: 420px;
+}
+
+/* Khối trust bên cạnh form */
+.form-trust {
+  font-size: 0.84rem;
+  color: var(--muted);
+  padding: 0.7rem 0.75rem;
+  border-radius: 0.9rem;
+  border: 1px solid rgba(148,163,184,0.45);
+  background: rgba(15,23,42,0.9);
+}
+
+.form-trust img {
+  border-radius: 0.7rem;
+  margin-bottom: 0.5rem;
+}
+
+.form-trust ul {
+  margin: 0.3rem 0 0.2rem;
+  padding-left: 1.1rem;
+}
+
+.form-trust li {
+  margin-bottom: 0.2rem;
+}
+
+/* Mobile: xếp dọc, form xuống dưới */
+@media (max-width: 768px) {
+  .cta-box {
+    flex-direction: column;
+  }
+  .cta-info,
+  .lp-form {
+    max-width: 100%;
+  }
+}
+
+    .cta-text h2 {
+      font-size: 1.1rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .cta-text p {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .lp-form {
+      width: 100%;
+      max-width: 420px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+      font-size: 0.84rem;
+    }
+
+    .lp-field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .lp-field label {
+      color: var(--muted);
+    }
+
+    .lp-field input,
+    .lp-field select,
+    .lp-field textarea {
+      background: rgba(15,23,42,0.95);
+      border: 1px solid rgba(148,163,184,0.6);
+      border-radius: 0.6rem;
+      padding: 0.55rem 0.7rem;
+      color: #e5e7eb;
+      font-size: 0.86rem;
+    }
+
+    .lp-field input:focus,
+    .lp-field select:focus,
+    .lp-field textarea:focus {
+      outline: none;
+      border-color: var(--primary);
+      box-shadow: 0 0 0 1px rgba(37,99,235,0.4);
+    }
+
+    /* CTA cuối */
+    .cta-bottom {
+      padding: 2rem 0 2.6rem;
+    }
+
+    .cta-bottom-box {
+      border-radius: var(--radius-xl);
+      padding: 1.4rem 1.3rem;
+      border: 1px solid rgba(148,163,184,0.45);
+      background: rgba(15,23,42,0.96);
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .cta-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+    }
+
+    footer {
+      border-top: 1px solid rgba(148,163,184,0.24);
+      padding: 1rem 0 1.6rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.8rem;
+      align-items: center;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    /* NÚT LIÊN HỆ NỔI */
+    .contact-floating {
+      position: fixed;
+      right: 18px;
+      bottom: 90px;
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .contact-btn {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      color: #fff;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.35);
+      transition: transform 0.18s;
+    }
+
+    .contact-btn.phone { background: #ef4444; }
+    .contact-btn.messenger { background: #0ea5e9; }
+    .contact-btn.zalo { background: #0284c7; }
+
+    .contact-btn:hover {
+      transform: scale(1.08);
+    }
+
+    /* MOBILE CTA DÍNH DƯỚI */
+    .mobile-cta-bar {
+      position: fixed;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      z-index: 90;
+      padding: 0.4rem 0.6rem;
+      background: linear-gradient(to right, rgba(15,23,42,0.96), rgba(15,23,42,0.98));
+      border-top: 1px solid rgba(148,163,184,0.4);
+      display: none;
+    }
+
+    .mobile-cta-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 0.6rem 0.8rem;
+      border-radius: 999px;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      color: #f9fafb;
+      font-size: 0.88rem;
+      font-weight: 600;
+      text-align: center;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .hero-inner {
+        grid-template-columns: minmax(0,1fr);
       }
-
-      .hero-image-wrapper {
-        margin-top: 2.5rem;
+      .hero-right {
+        order: -1;
       }
+      .programs-grid {
+        grid-template-columns: repeat(2, minmax(0,1fr));
+      }
+      .why-grid {
+        grid-template-columns: minmax(0,1fr);
+      }
+    }
 
-      .about-img {
-        margin-bottom: 1.2rem;
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      .hero {
+        padding-top: 2rem;
+      }
+      .programs-grid {
+        grid-template-columns: minmax(0,1fr);
+      }
+      .why-list {
+        grid-template-columns: minmax(0,1fr);
+      }
+      .contact-floating {
+        right: 12px;
+        bottom: 78px;
+      }
+      .contact-btn {
+        width: 42px;
+        height: 42px;
+        font-size: 1.1rem;
+      }
+      .mobile-cta-bar {
+        display: block;
+      }
+      body {
+        padding-bottom: 3.2rem; /* chừa chỗ cho thanh CTA dưới */
+      }
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 14px;
+      }
+      .hero-title {
+        font-size: 1.6rem;
+      }
+      .btn {
+        width: 100%;
       }
     }
   </style>
 </head>
+<body>
+  <!-- NÚT LIÊN HỆ NỔI -->
+  <div class="contact-floating">
+    <a href="tel:0909123456" class="contact-btn phone" title="Gọi điện">
+      📞
+    </a>
+    <a href="https://m.me/yourfacebookid" target="_blank" class="contact-btn messenger" title="Messenger">
+      💬
+    </a>
+    <a href="https://zalo.me/0909123456" target="_blank" class="contact-btn zalo" title="Zalo">
+      Z
+    </a>
+  </div>
 
-<body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="80">
-  <!-- NAVBAR -->
-  <nav id="mainNav" class="navbar navbar-expand-lg navbar-light fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="#home">
-        <!-- LOGO: đổi đường dẫn cho đúng -->
-        <img src="images/loan-media-logo.png" alt="Loan Media Logo" style="height:42px;">
+  <!-- CTA DÍNH DƯỚI CHO MOBILE -->
+  <div class="mobile-cta-bar">
+    <a href="#dang-ky" class="mobile-cta-btn">
+      📩 Đăng ký tư vấn AI Marketing cho doanh nghiệp
+    </a>
+  </div>
 
-        <span>Loan Media</span>
-      </a>
-      <button
-        class="navbar-toggler"
-        type="button"
-        data-bs-toggle="collapse"
-        data-bs-target="#navbarContent"
-        aria-controls="navbarContent"
-        aria-expanded="false"
-        aria-label="Toggle navigation"
-      >
-        <span class="navbar-toggler-icon"></span>
-      </button>
+  <!-- HEADER -->
+  <header>
+    <div class="container nav">
+      <div class="brand">
+        <div class="brand-logo">VA</div>
+        <div>
+          <div class="brand-text-main">Vita Marketing AI</div>
+          <div class="brand-text-sub">AI marketing for business</div>
+        </div>
+      </div>
 
-      <div class="collapse navbar-collapse" id="navbarContent">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link active" href="#home">Trang chủ</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#about">Giới thiệu</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#training">Khóa học</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#design">Dịch vụ</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#portfolio">Sản phẩm</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#collab">Hợp tác</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#contact">Liên hệ</a>
-          </li>
-        </ul>
+      <nav class="nav-links">
+        <a href="#top">Trang chủ</a>
+        <a href="#chuong-trinh">Chương trình</a>
+        <a href="#dang-ky">Đăng ký</a>
+      </nav>
+
+      <div class="nav-cta">
+        <a href="#chuong-trinh" class="btn btn-outline">Xem chương trình</a>
+        <a href="#dang-ky" class="btn btn-primary">Đăng ký tư vấn</a>
       </div>
     </div>
-  </nav>
+  </header>
 
-  <!-- HERO -->
-  <section id="home">
-    <div class="container">
-      <div class="row align-items-center">
-        <!-- text -->
-        <div class="col-lg-6 reveal">
-          <div class="hero-tag">Giảng viên &amp; Freelancer thiết kế – truyền thông</div>
+  <main id="top">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div>
+          <div class="eyebrow">
+            <span class="eyebrow-badge">AI</span>
+            <span>Đào tạo & tư vấn AI Marketing cho doanh nghiệp</span>
+          </div>
+
           <h1 class="hero-title">
-            Xin chào, tôi là <span>Nguyễn Phương Loan</span><br />
-            Loan Media – Thiết kế &amp; Đào tạo Đồ họa, AI
+            Làm chủ <span class="gradient">AI trong kinh doanh & marketing</span> cho doanh nghiệp nhỏ.
           </h1>
+
           <p class="hero-subtitle">
-            Chuyên đào tạo Photoshop, Illustrator, InDesign, Premiere, After Effects,
-            thiết kế với AI cho cá nhân, nhóm nhỏ và doanh nghiệp. Đồng thời nhận
-            thiết kế truyền thông đa phương tiện phục vụ bán hàng, thương mại điện tử
-            và xây dựng thương hiệu.
-          </p>
-          <div class="hero-typing" id="heroTyping"></div>
-          <div class="d-flex flex-wrap gap-2">
-            <a href="#contact" class="btn btn-lm-primary">Đăng ký tư vấn học / thiết kế</a>
-            <a href="#portfolio" class="btn btn-lm-ghost">Xem sản phẩm thực tế</a>
-          </div>
-        </div>
-
-        <!-- image -->
-        <div class="col-lg-6 reveal">
-          <div class="hero-image-wrapper">
-            <!-- ẢNH 2 -->
-            <img
-              src="images/loan-media-hero.jpg"
-              alt="Loan Media Studio"
-              class="hero-image-main"
-            />
-            <div class="hero-logo-badge">
-              <img src="images/logo-loan-media.png" alt="Loan Media logo" />
-              <span>Loan Media Studio</span>
-            </div>
-            <div class="hero-floating-card">
-              <div class="hero-floating-dot"></div>
-              <div>
-                <div style="font-size: 0.8rem; font-weight: 600">Hơn 10 năm giảng dạy</div>
-                <div style="font-size: 0.75rem; opacity: 0.8">
-                  Đồ họa – Thương mại điện tử – Marketing số
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="container">
-      <div class="section-title reveal">
-        <h2>Giới thiệu</h2>
-        <p>
-          Tôi là giảng viên Thương mại điện tử &amp; Thiết kế đồ họa, đồng thời vận hành
-          Loan Media – cung cấp dịch vụ thiết kế &amp; đào tạo ứng dụng ngay cho kinh doanh thực tế.
-        </p>
-      </div>
-      <div class="row align-items-center">
-        <div class="col-lg-4 text-center mb-4 mb-lg-0 reveal">
-          <!-- ẢNH 3 -->
-          <img
-            src="images/loan-media-portrait.jpg"
-            alt="Nguyễn Phương Loan – Loan Media"
-            class="about-img"
-          />
-        </div>
-        <div class="col-lg-8 reveal">
-          <span class="badge-soft">Giảng viên – Trainer – Freelancer thiết kế</span>
-          <h3 class="mb-2">Thiết kế để bán được hàng, không chỉ để đẹp</h3>
-          <p style="font-size: 0.95rem; color: var(--lm-gray)">
-            Tôi đồng hành cùng sinh viên, chủ shop, mẹ bỉm, giáo viên và doanh nghiệp
-            trong hành trình xây dựng hình ảnh chuyên nghiệp trên môi trường số. Nội dung
-            giảng dạy luôn bám sát thực tế: banner bán hàng, hình sàn TMĐT, social media,
-            profile doanh nghiệp, video ngắn, v.v.
+            Vita Marketing AI giúp doanh nghiệp nhỏ, spa, trung tâm đào tạo ứng dụng AI vào 
+            marketing, xây dựng thương hiệu và tự động hóa quy trình bán hàng – 
+            với lộ trình 3 cấp độ: Basic, Advanced, Mentoring 1:1.
           </p>
 
-          <ul class="about-list">
-            <li>Hơn 10 năm giảng dạy tại các trường cao đẳng/đại học tại TP.HCM.</li>
-            <li>Thực hiện nhiều dự án thiết kế bộ nhận diện, ấn phẩm in ấn &amp; digital.</li>
-            <li>Chuyên đào tạo “người mới bắt đầu” &amp; đội nhóm marketing nội bộ.</li>
-          </ul>
+          <div class="hero-highlight">
+            <span>⚡ 3 cấp độ: Thực chiến – Hệ thống – Mentoring</span>
+            <span>📈 Tập trung kết quả & ứng dụng thực tế</span>
+            <span>🤝 Thiết kế chương trình theo bài toán doanh nghiệp</span>
+          </div>
 
-          <div class="row mt-3">
-            <div class="col-md-6">
-              <div class="skill-bar">
-                <div class="skill-label">
-                  <span>Photoshop cho Marketing</span><span>90%</span>
-                </div>
-                <div class="skill-track">
-                  <div class="skill-fill" data-skill="90"></div>
-                </div>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-label">
-                  <span>Illustrator &amp; InDesign</span><span>85%</span>
-                </div>
-                <div class="skill-track">
-                  <div class="skill-fill" data-skill="85"></div>
-                </div>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-label">
-                  <span>Premiere / After Effects cơ bản</span><span>80%</span>
-                </div>
-                <div class="skill-track">
-                  <div class="skill-fill" data-skill="80"></div>
-                </div>
-              </div>
+          <div class="hero-actions">
+            <a href="#chuong-trinh" class="btn btn-primary">Xem 3 chương trình đào tạo</a>
+            <a href="#dang-ky" class="btn btn-outline">Đặt lịch tư vấn doanh nghiệp</a>
+          </div>
+
+          <div class="hero-meta">
+            <div class="hero-meta-item">
+              <strong>3 chương trình</strong>
+              AI Marketing Thực Chiến · Thương Hiệu & Hệ Thống · Tự Động Hóa & Mentoring
             </div>
-
-            <div class="col-md-6">
-              <div class="skill-bar">
-                <div class="skill-label">
-                  <span>Thiết kế với AI (Canva, AI hỗ trợ)</span><span>88%</span>
-                </div>
-                <div class="skill-track">
-                  <div class="skill-fill" data-skill="88"></div>
-                </div>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-label">
-                  <span>Thiết kế ấn phẩm bán hàng TMĐT</span><span>92%</span>
-                </div>
-                <div class="skill-track">
-                  <div class="skill-fill" data-skill="92"></div>
-                </div>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-label">
-                  <span>Đào tạo nhóm &amp; inhouse</span><span>90%</span>
-                </div>
-                <div class="skill-track">
-                  <div class="skill-fill" data-skill="90"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="mt-3">
-            <a href="#training" class="btn btn-lm-primary">Xem các khóa đào tạo</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- TRAINING -->
-  <section id="training">
-    <div class="container">
-      <div class="section-title reveal">
-        <h2>Khóa học</h2>
-        <p>
-          Chương trình học được thiết kế linh hoạt cho từng nhóm: người mới, chủ shop, mẹ bỉm,
-          nhân viên marketing và doanh nghiệp.
-        </p>
-      </div>
-
-      <div class="row g-3">
-        <div class="col-md-4 reveal">
-          <div class="lm-card">
-            <div class="lm-pill">Nhóm / Online</div>
-            <h5>Photoshop cho Marketing &amp; Bán hàng</h5>
-            <p>
-              Học làm banner, poster, ảnh sản phẩm, ấn phẩm social phục vụ bán hàng
-              và quảng cáo. Học từ căn bản đến ứng dụng thực tế.
-            </p>
-            <ul class="about-list">
-              <li>Không cần nền tảng thiết kế trước.</li>
-              <li>Kèm file mẫu &amp; checklist thiết kế.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="col-md-4 reveal">
-          <div class="lm-card">
-            <div class="lm-pill">1:1 / Theo mục tiêu</div>
-            <h5>Coaching thiết kế cá nhân hóa</h5>
-            <p>
-              Lộ trình riêng theo mục tiêu: đi dạy, đi làm marketing, xây thương hiệu,
-              kinh doanh online hoặc chuyển nghề sang thiết kế.
-            </p>
-            <ul class="about-list">
-              <li>Học 1:1 online hoặc trực tiếp.</li>
-              <li>Tập trung chỉnh sửa sản phẩm thật của học viên.</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="col-md-4 reveal">
-          <div class="lm-card">
-            <div class="lm-pill">Doanh nghiệp</div>
-            <h5>Đào tạo inhouse – Thiết kế &amp; Nội dung</h5>
-            <p>
-              Thiết kế chương trình riêng cho đội ngũ marketing, chăm sóc fanpage,
-              TMĐT, truyền thông nội bộ theo case thực tế của doanh nghiệp.
-            </p>
-            <ul class="about-list">
-              <li>Tùy chỉnh thời lượng &amp; chủ đề.</li>
-              <li>Có thể kết hợp workshop thực hành theo chiến dịch.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- DESIGN SERVICES -->
-  <section id="design">
-    <div class="container">
-      <div class="section-title reveal">
-        <h2>Dịch vụ</h2>
-        <p>
-          Loan Media nhận thiết kế trọn gói hoặc theo hạng mục, ưu tiên tính ứng dụng
-          và hiệu quả truyền thông cho khách hàng.
-        </p>
-      </div>
-
-      <div class="row g-3">
-        <div class="col-md-4 reveal">
-          <div class="lm-card">
-            <div class="lm-pill">Branding</div>
-            <h5>Bộ nhận diện thương hiệu cơ bản</h5>
-            <p>
-              Logo, màu sắc, font chữ, namecard, cover fanpage và một số ấn phẩm nền tảng
-              cho thương hiệu cá nhân hoặc doanh nghiệp nhỏ.
-            </p>
-          </div>
-        </div>
-
-        <div class="col-md-4 reveal">
-          <div class="lm-card">
-            <div class="lm-pill">E-commerce</div>
-            <h5>Thiết kế cho sàn TMĐT &amp; Social</h5>
-            <p>
-              Ảnh sản phẩm, banner chương trình, infographic, bộ template cho Shopee,
-              Lazada, Tiki, Facebook, Zalo, TikTok.
-            </p>
-          </div>
-        </div>
-
-        <div class="col-md-4 reveal">
-          <div class="lm-card">
-            <div class="lm-pill">Multimedia</div>
-            <h5>Video ngắn &amp; ấn phẩm đa phương tiện</h5>
-            <p>
-              Video giới thiệu, video ngắn bán hàng, slide thuyết trình, brochure online
-              và các ấn phẩm hỗ trợ dạy học / đào tạo.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- PORTFOLIO -->
-  <section id="portfolio">
-    <div class="container">
-      <div class="section-title reveal">
-        <h2>Sản phẩm tiêu biểu</h2>
-        <p>
-          Một số nhóm sản phẩm thiết kế và dự án đào tạo đã thực hiện.
-          Bạn có thể yêu cầu gửi thêm portfolio chi tiết qua email hoặc Zalo.
-        </p>
-      </div>
-
-      <div class="row g-3">
-        <div class="col-md-4 reveal">
-          <div class="portfolio-item">
-            <img src="images/portfolio-ecom.jpg" alt="Thiết kế sàn TMĐT" />
-            <div class="portfolio-overlay">
-              <div class="portfolio-category">Sàn TMĐT</div>
-              <h5>Ảnh sản phẩm &amp; banner bán hàng</h5>
-              <p style="font-size: 0.8rem; opacity: 0.85">
-                Thiết kế bộ ảnh cho shop online, tối ưu hiển thị trên Shopee / Lazada /
-                Facebook.
-              </p>
+            <div class="hero-meta-item">
+              <strong>Đối tượng</strong>
+              Doanh nghiệp nhỏ, spa, trung tâm, chủ thương hiệu cá nhân
             </div>
           </div>
         </div>
 
-        <div class="col-md-4 reveal">
-          <div class="portfolio-item">
-            <img src="images/portfolio-branding.jpg" alt="Bộ nhận diện thương hiệu" />
-            <div class="portfolio-overlay">
-              <div class="portfolio-category">Branding</div>
-              <h5>Bộ nhận diện thương hiệu cơ bản</h5>
-              <p style="font-size: 0.8rem; opacity: 0.85">
-                Logo, màu sắc, namecard, profile ngắn cho thương hiệu cá nhân &amp; SME.
-              </p>
+        <div class="hero-right">
+          <div class="hero-card">
+            <div class="hero-glow"></div>
+
+            <div class="hero-chip-row">
+              <div class="hero-chip">
+                <span class="label">Tập trung kết quả</span>
+                <span>Chiến dịch, đơn hàng, hệ thống rõ ràng</span>
+              </div>
+              <div class="hero-chip">
+                <span class="label">Hình thức linh hoạt</span>
+                <span>Online / In-house theo doanh nghiệp</span>
+              </div>
             </div>
-          </div>
-        </div>
 
-        <div class="col-md-4 reveal">
-          <div class="portfolio-item">
-            <img src="images/portfolio-training.jpg" alt="Đào tạo thiết kế" />
-            <div class="portfolio-overlay">
-              <div class="portfolio-category">Đào tạo</div>
-              <h5>Workshop &amp; lớp học thiết kế</h5>
-              <p style="font-size: 0.8rem; opacity: 0.85">
-                Chương trình đào tạo ngắn hạn cho đội nhóm marketing, giáo viên và chủ shop.
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- COLLABORATION -->
-  <section id="collab">
-    <div class="container">
-      <div class="section-title reveal">
-        <h2>Hợp tác</h2>
-        <p>
-          Mỗi học viên, mỗi doanh nghiệp có mục tiêu và yêu cầu khác nhau,
-          nên Loan Media không dùng bảng giá cố định. 
-          Thay vào đó, tôi thiết kế lộ trình &amp; báo phí theo nhu cầu thực tế.
-        </p>
-      </div>
-
-      <div class="row g-3">
-        <div class="col-md-4 reveal">
-          <div class="lm-card">
-            <div class="lm-pill">Coaching 1:1</div>
-            <h5>Học kề cận theo mục tiêu riêng</h5>
-            <p>
-              Phù hợp với người muốn học nhanh, theo mục tiêu rõ: đi dạy, đi làm, 
-              xây thương hiệu cá nhân hoặc kinh doanh online.
-            </p>
-            <p style="font-size: 0.85rem; color: var(--lm-gray)">
-              Gửi nhu cầu, tôi sẽ đề xuất số buổi, nội dung chính và mức phí phù hợp.
-            </p>
-          </div>
-        </div>
-
-        <div class="col-md-4 reveal">
-          <div class="lm-card">
-            <div class="lm-pill">Nhóm / Workshop</div>
-            <h5>Lớp nhỏ, học thực hành</h5>
-            <p>
-              Nhóm 3–15 người: mẹ bỉm, chủ shop, nhân viên marketing, giáo viên…
-              Nội dung tập trung vào sản phẩm thật của người học.
-            </p>
-            <p style="font-size: 0.85rem; color: var(--lm-gray)">
-              Hình thức online hoặc trực tiếp; thời lượng linh hoạt theo mục tiêu.
-            </p>
-          </div>
-        </div>
-
-        <div class="col-md-4 reveal">
-          <div class="lm-card">
-            <div class="lm-pill">Doanh nghiệp</div>
-            <h5>Đào tạo inhouse &amp; thiết kế dự án</h5>
-            <p>
-              Xây chương trình đào tạo riêng cho team, hoặc nhận thiết kế theo dự án:
-              bộ nhận diện, social media, hồ sơ năng lực, video giới thiệu…
-            </p>
-            <p style="font-size: 0.85rem; color: var(--lm-gray)">
-              Gửi mô tả nhu cầu / brief, tôi sẽ tư vấn giải pháp &amp; báo phí chi tiết.
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="text-center mt-4 reveal">
-        <p style="font-size: 0.95rem; color: var(--lm-gray)">
-          Hãy chia sẻ mục tiêu, thời gian và ngân sách dự kiến – tôi sẽ đề xuất phương án phù hợp nhất.
-        </p>
-        <a href="#contact" class="btn btn-lm-primary">Gửi yêu cầu tư vấn</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- TESTIMONIALS -->
-  <section id="testimonials">
-    <div class="container">
-      <div class="section-title reveal">
-        <h2>Cảm nhận học viên &amp; đối tác</h2>
-        <p>
-          Một vài chia sẻ ngắn từ học viên và khách hàng từng đồng hành cùng Loan Media.
-        </p>
-      </div>
-
-      <div class="row g-3">
-        <div class="col-md-4 reveal">
-          <div class="testimonial">
-            “Trước đây mình không biết gì về Photoshop, sau 6 buổi đã tự làm được
-            bộ ảnh sản phẩm cho shop online, tiết kiệm khá nhiều chi phí thuê thiết kế.”
-            <div class="testimonial-name">Chị H., chủ shop online</div>
-            <div class="testimonial-role">Khóa Photoshop cho bán hàng</div>
-          </div>
-        </div>
-        <div class="col-md-4 reveal">
-          <div class="testimonial">
-            “Lớp học nhỏ, cô giải thích dễ hiểu và sửa bài rất kỹ. 
-            Sau khóa học, mình tự tin hơn khi làm ấn phẩm social và banner chương trình.”
-            <div class="testimonial-name">Bạn T., nhân viên marketing</div>
-            <div class="testimonial-role">Lớp nhóm thiết kế marketing</div>
-          </div>
-        </div>
-        <div class="col-md-4 reveal">
-          <div class="testimonial">
-            “Chương trình đào tạo được thiết kế riêng theo case của công ty nên 
-            sau khi học xong đội ngũ áp dụng được ngay vào chiến dịch thực tế.”
-            <div class="testimonial-name">Anh N., trưởng phòng KD</div>
-            <div class="testimonial-role">Đào tạo inhouse cho doanh nghiệp</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="container">
-      <div class="row justify-content-center">
-        <div class="col-lg-7 mb-4 mb-lg-0 reveal">
-          <div class="contact-card">
-            <h2 class="mb-2">Liên hệ &amp; đăng ký tư vấn</h2>
-            <p style="font-size: 0.9rem; color: #4b5563">
-              Hãy gửi cho tôi vài dòng về nhu cầu của bạn: học thiết kế, coaching 1:1,
-              đào tạo cho đội nhóm hoặc thuê thiết kế. Tôi sẽ phản hồi sớm nhất có thể.
-            </p>
-
-            <form>
-              <div class="row g-2">
-                <div class="col-sm-6">
-                  <label class="form-label small">Họ và tên</label>
-                  <input type="text" class="form-control" placeholder="Nhập họ tên của bạn" />
+            <div class="hero-levels">
+              <p class="hero-levels-title">Lộ trình 3 cấp độ Vita Marketing AI:</p>
+              <div class="hero-levels-grid">
+                <div class="hero-level-pill">
+                  <strong>Basic</strong>
+                  <span>AI Marketing Thực Chiến</span>
                 </div>
-                <div class="col-sm-6">
-                  <label class="form-label small">Email</label>
-                  <input type="email" class="form-control" placeholder="Email liên hệ" />
+                <div class="hero-level-pill">
+                  <strong>Advanced</strong>
+                  <span>Thương Hiệu & Hệ Thống AI</span>
                 </div>
-                <div class="col-sm-6">
-                  <label class="form-label small">Số điện thoại / Zalo</label>
-                  <input type="text" class="form-control" placeholder="Số điện thoại hoặc Zalo" />
-                </div>
-                <div class="col-sm-6">
-                  <label class="form-label small">Quan tâm đến</label>
-                  <select class="form-select">
-                    <option>Chọn một mục</option>
-                    <option>Học nhóm online</option>
-                    <option>Coaching 1:1</option>
-                    <option>Đào tạo doanh nghiệp</option>
-                    <option>Thuê thiết kế</option>
-                  </select>
-                </div>
-                <div class="col-12">
-                  <label class="form-label small">Nội dung chia sẻ</label>
-                  <textarea
-                    class="form-control"
-                    rows="4"
-                    placeholder="Mô tả ngắn gọn nhu cầu, mục tiêu, thời gian dự kiến..."
-                  ></textarea>
+                <div class="hero-level-pill">
+                  <strong>Mentoring</strong>
+                  <span>AI Tự Động Hóa Marketing</span>
                 </div>
               </div>
-              <button type="submit" class="btn btn-lm-primary mt-3 w-100">
-                Gửi thông tin (form demo – chỉnh lại theo ý bạn)
-              </button>
-            </form>
+            </div>
+
+            <div style="margin-top: 0.9rem; font-size: 0.8rem; color: var(--muted); position:relative; z-index:2;">
+              Founder & Trainer: <strong style="color:#e5e7eb;">Nguyễn Phương Loan</strong><br />
+              Chuyên đào tạo & đồng hành triển khai AI Marketing cho doanh nghiệp nhỏ, spa, thương hiệu cá nhân.
+            </div>
           </div>
         </div>
+      </div>
+    </section>
 
-        <div class="col-lg-4 offset-lg-1 d-flex align-items-center reveal">
+    <!-- PROGRAMS PREVIEW -->
+    <section id="chuong-trinh">
+      <div class="container">
+        <div class="section-header">
           <div>
-            <h5>Thông tin liên hệ nhanh</h5>
-            <div class="contact-info-item">
-              <div class="contact-info-dot"></div>
-              <div>
-                <strong>Email:</strong> yourmail@example.com<br />
-                (thay email công việc của bạn)
-              </div>
-            </div>
-            <div class="contact-info-item">
-              <div class="contact-info-dot"></div>
-              <div>
-                <strong>Zalo / Điện thoại:</strong> 09xx xxx xxx<br />
-                (ghi số bạn muốn học viên/khách hàng liên hệ)
-              </div>
-            </div>
-            <div class="contact-info-item">
-              <div class="contact-info-dot"></div>
-              <div>
-                <strong>Khu vực:</strong> TP. Hồ Chí Minh – dạy online toàn quốc
-              </div>
-            </div>
-
-            <h6 class="mt-3">Kết nối mạng xã hội</h6>
-            <p style="font-size: 0.9rem">
-              Thêm link Facebook, Fanpage, YouTube hoặc TikTok của bạn tại đây.
+            <h2 class="section-title">3 chương trình đào tạo Vita Marketing AI</h2>
+            <p class="section-sub">
+              Lộ trình từ ứng dụng AI Marketing thực chiến đến xây dựng thương hiệu 
+              và tự động hóa marketing cho doanh nghiệp.
             </p>
           </div>
         </div>
+
+        <div class="programs-grid">
+          <!-- BASIC -->
+          <article class="card">
+            <div class="card-badge">Basic • Nhóm nhỏ</div>
+            <h3 class="card-title">AI Marketing Thực Chiến Cho Doanh Nghiệp</h3>
+            <p class="card-desc">
+              Ứng dụng AI để tạo bài viết, hình ảnh, video, nội dung quảng cáo – 
+              triển khai ngay trên Facebook, Zalo, TikTok, Shopee, Website.
+            </p>
+            <div class="card-meta">
+              <span>⏱ 6 buổi × 2 giờ</span>
+              <span>👥 6–15 học viên</span>
+              <span>🎯 Tập trung thực hành</span>
+            </div>
+            <div class="card-footer">
+              <div class="price">
+                3.500.000đ
+                <small>/ học viên (nhóm chung)</small>
+              </div>
+              <a href="#dang-ky" class="btn btn-outline">Đăng ký quan tâm</a>
+            </div>
+          </article>
+
+          <!-- ADVANCED -->
+          <article class="card">
+            <div class="card-badge">Advanced • Hệ thống</div>
+            <h3 class="card-title">Xây Dựng Thương Hiệu & Hệ Thống Marketing Bằng AI</h3>
+            <p class="card-desc">
+              Xây chân dung khách hàng, hành trình khách hàng, chiến lược thương hiệu, 
+              kế hoạch nội dung 30–90 ngày và phễu marketing đa kênh với AI.
+            </p>
+            <div class="card-meta">
+              <span>⏱ 8 buổi × 2 giờ</span>
+              <span>👥 5–12 học viên</span>
+              <span>📊 Case thực tế doanh nghiệp</span>
+            </div>
+            <div class="card-footer">
+              <div class="price">
+                5.500.000đ
+                <small>/ học viên (nhóm chung)</small>
+              </div>
+              <a href="#dang-ky" class="btn btn-outline">Đăng ký quan tâm</a>
+            </div>
+          </article>
+
+          <!-- MENTORING -->
+          <article class="card">
+            <div class="card-badge">Mentoring • 1:1</div>
+            <h3 class="card-title">Tự Động Hóa Marketing Doanh Nghiệp Bằng AI – Mentoring 1:1</h3>
+            <p class="card-desc">
+              Đồng hành 1:1 cùng chủ doanh nghiệp: thiết kế phễu, CRM, chatbot, email/Zalo automation, 
+              báo cáo & tối ưu – theo đúng bài toán thực tế của doanh nghiệp.
+            </p>
+            <div class="card-meta">
+              <span>⏱ 6–8 tuần</span>
+              <span>🤝 1–3 doanh nghiệp</span>
+              <span>⚙ Triển khai trên hệ thống thật</span>
+            </div>
+            <div class="card-footer">
+              <div class="price">
+                12–18 triệu
+                <small>/ doanh nghiệp (tùy gói)</small>
+              </div>
+              <a href="#dang-ky" class="btn btn-outline">Yêu cầu tư vấn</a>
+            </div>
+          </article>
+        </div>
       </div>
+    </section>
+
+    <!-- WHY SECTION -->
+    <section>
+      <div class="container">
+        <div class="section-header">
+          <div>
+            <h2 class="section-title">Vì sao doanh nghiệp cần Vita Marketing AI?</h2>
+            <p class="section-sub">
+              Thay vì học công cụ rời rạc, chương trình tập trung vào bài toán kinh doanh, 
+              hệ thống marketing & vận hành thực tế của doanh nghiệp.
+            </p>
+          </div>
+        </div>
+
+        <div class="why-grid">
+          <div>
+            <div class="badge-soft">
+              🚀 Tập trung vào hệ thống, không chỉ nội dung
+            </div>
+            <div class="why-list">
+              <div class="why-item">
+                <strong>AI gắn với bài toán doanh nghiệp</strong>
+                Không dạy “AI cho vui” – mọi bài tập đều xoay quanh sản phẩm, dịch vụ, khách hàng thực tế của doanh nghiệp.
+              </div>
+              <div class="why-item">
+                <strong>Lộ trình 3 cấp độ rõ ràng</strong>
+                Từ thực chiến triển khai nội dung đến xây brand, phễu bán hàng và tự động hóa marketing.
+              </div>
+              <div class="why-item">
+                <strong>Thực hành trên kênh đang sử dụng</strong>
+                Facebook, Zalo, TikTok, Website, Shopee… – doanh nghiệp dùng kênh nào, học áp dụng lên kênh đó.
+              </div>
+              <div class="why-item">
+                <strong>Mentoring 1:1 dành cho chủ doanh nghiệp</strong>
+                Giai đoạn Mentoring giúp doanh nghiệp có người đồng hành, không chỉ “học xong để đó”.
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h3 style="font-size:0.96rem; font-weight:600; margin-bottom:0.5rem;">
+              Quy trình làm việc với Vita Marketing AI
+            </h3>
+            <div class="process-list">
+              <div class="process-step">
+                <div class="process-number">1</div>
+                <div>
+                  <strong>Khảo sát nhanh bài toán doanh nghiệp</strong><br />
+                  Điền form / trao đổi qua Zalo để mô tả ngành hàng, kênh đang dùng, mục tiêu 1–3 tháng tới.
+                </div>
+              </div>
+              <div class="process-step">
+                <div class="process-number">2</div>
+                <div>
+                  <strong>Đề xuất cấp độ & hình thức học phù hợp</strong><br />
+                  Basic / Advanced / Mentoring – theo ngân sách, mục tiêu & mức độ sẵn sàng của doanh nghiệp.
+                </div>
+              </div>
+              <div class="process-step">
+                <div class="process-number">3</div>
+                <div>
+                  <strong>Triển khai học & áp dụng trên case thật</strong><br />
+                  Mỗi buổi học là một bước triển khai thực tế vào kênh marketing của doanh nghiệp.
+                </div>
+              </div>
+              <div class="process-step">
+                <div class="process-number">4</div>
+                <div>
+                  <strong>Đo lường & tối ưu, chuyển sang tự động hóa</strong><br />
+                  Giai đoạn nâng cao/mentoring: kết nối CRM, tự động hóa quy trình marketing & báo cáo.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FORM ĐĂNG KÝ -->
+    <section id="dang-ky">
+  <div class="container">
+    <div class="cta-box">
+      <!-- CỘT TRÁI: text + khối trust -->
+      <div class="cta-info">
+        <div class="cta-text">
+          <h2>Đăng ký tư vấn triển khai AI Marketing cho doanh nghiệp</h2>
+          <p>
+            Điền thông tin bên dưới, Vita Marketing AI sẽ liên hệ trong vòng 24h để tư vấn 
+            cấp độ phù hợp (Basic, Advanced hoặc Mentoring 1:1) và hình thức học phù hợp 
+            với doanh nghiệp của bạn.
+          </p>
+        </div>
+
+        <!-- MẪU 3 – KHỐI TRUST -->
+        <div class="form-trust">
+          <!-- sau này bạn có thể thay bằng 1 hình thật -->
+          <!-- <img src="assets/images/business-consult.png" alt="AI Business Consulting"> -->
+          <p>Buổi tư vấn giúp doanh nghiệp:</p>
+          <ul>
+            <li>🎯 Xác định đúng bài toán marketing hiện tại</li>
+            <li>⚙ Chọn cách dùng AI: làm nội dung hay xây hệ thống</li>
+            <li>📈 Nhận lộ trình triển khai AI phù hợp từng ngành</li>
+          </ul>
+          <p style="margin-top:0.3rem;"><strong>Hoàn toàn miễn phí – Không ràng buộc.</strong></p>
+        </div>
+      </div>
+
+      <!-- CỘT PHẢI: FORM -->
+      <form class="lp-form">
+        <div class="lp-field">
+          <label>Họ tên người liên hệ *</label>
+          <input type="text" name="name" required />
+        </div>
+        <div class="lp-field">
+          <label>Số điện thoại / Zalo *</label>
+          <input type="tel" name="phone" required />
+        </div>
+        <div class="lp-field">
+          <label>Tên doanh nghiệp / spa / trung tâm</label>
+          <input type="text" name="company" />
+        </div>
+        <div class="lp-field">
+          <label>Doanh nghiệp quan tâm cấp độ</label>
+          <select name="level">
+            <option value="">Chưa rõ – cần tư vấn</option>
+            <option value="basic">Basic – AI Marketing Thực Chiến</option>
+            <option value="advanced">Advanced – Thương Hiệu & Hệ Thống</option>
+            <option value="mentoring">Mentoring – Tự Động Hóa 1:1</option>
+          </select>
+        </div>
+        <div class="lp-field">
+          <label>Ghi chú thêm về ngành hàng / kênh đang sử dụng</label>
+          <textarea name="note" rows="3"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width:100%;">
+          Gửi thông tin – Nhận tư vấn miễn phí
+        </button>
+      </form>
     </div>
-  </section>
+  </div>
+</section>
+
+
+    <!-- CTA CUỐI -->
+    <section class="cta-bottom">
+      <div class="container">
+        <div class="cta-bottom-box">
+          <div class="cta-text">
+            <h2>Sẵn sàng đưa AI vào hệ thống marketing & kinh doanh?</h2>
+            <p>
+              Hãy bắt đầu từ một buổi tư vấn ngắn 30 phút để xác định doanh nghiệp nên học 
+              ở cấp độ nào và lộ trình triển khai AI Marketing phù hợp.
+            </p>
+          </div>
+          <div class="cta-actions">
+            <a href="#dang-ky" class="btn btn-primary">Đăng ký tư vấn cho doanh nghiệp</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 
   <!-- FOOTER -->
   <footer>
-    <div class="container d-flex flex-wrap justify-content-between align-items-center">
-      <div class="mb-1">
-        © <span id="year"></span> Loan Media. All rights reserved.
+    <div class="container footer-inner">
+      <div>
+        © <span id="year"></span> Vita Marketing AI. Đào tạo & tư vấn AI Marketing cho doanh nghiệp nhỏ, spa, trung tâm, thương hiệu cá nhân.
       </div>
-      <div class="mb-1">
-        Thiết kế &amp; phát triển bởi
-        <a href="#home">Loan Media</a>
+      <div class="footer-links">
+        <a href="#chuong-trinh">Chương trình</a>
+        <a href="#dang-ky">Đăng ký</a>
       </div>
     </div>
   </footer>
 
-  <!-- JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-
   <script>
-    // Năm footer
+    // Cập nhật năm hiện tại
     document.getElementById("year").textContent = new Date().getFullYear();
-
-    // Typing effect
-    const typingEl = document.getElementById("heroTyping");
-    const typingTexts = [
-      "Giảng viên thiết kế đồ họa & Thương mại điện tử.",
-      "Trainer Photoshop, Illustrator, InDesign, Premiere, After Effects.",
-      "Đồng hành cùng bạn trong hành trình ứng dụng AI vào thiết kế.",
-      "Freelancer thiết kế truyền thông đa phương tiện cho thương hiệu & bán hàng."
-    ];
-    let typingIndex = 0;
-    let charIndex = 0;
-    let typingForward = true;
-
-    function typeLoop() {
-      const currentText = typingTexts[typingIndex];
-
-      if (typingForward) {
-        charIndex++;
-        if (charIndex >= currentText.length) {
-          typingForward = false;
-          setTimeout(typeLoop, 1300);
-          typingEl.textContent = currentText;
-          return;
-        }
-      } else {
-        charIndex--;
-        if (charIndex <= 0) {
-          typingForward = true;
-          typingIndex = (typingIndex + 1) % typingTexts.length;
-        }
-      }
-
-      typingEl.textContent = currentText.substring(0, charIndex);
-      setTimeout(typeLoop, typingForward ? 40 : 25);
-    }
-    typeLoop();
-
-    // Reveal on scroll
-    const revealEls = document.querySelectorAll(".reveal");
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-
-            // animate skills when about in view
-            if (entry.target.id === "about" || entry.target.closest("#about")) {
-              document.querySelectorAll(".skill-fill").forEach((bar) => {
-                const value = bar.getAttribute("data-skill");
-                bar.style.width = value + "%";
-              });
-            }
-          }
-        });
-      },
-      { threshold: 0.15 }
-    );
-
-    revealEls.forEach((el) => observer.observe(el));
-
-    // Active nav link on scroll
-    const navLinks = document.querySelectorAll(".navbar-nav .nav-link");
-
-    function setActiveNav() {
-      let fromTop = window.scrollY + 90;
-
-      navLinks.forEach((link) => {
-        const section = document.querySelector(link.getAttribute("href"));
-        if (!section) return;
-
-        if (
-          section.offsetTop <= fromTop &&
-          section.offsetTop + section.offsetHeight > fromTop
-        ) {
-          navLinks.forEach((l) => l.classList.remove("active"));
-          link.classList.add("active");
-        }
-      });
-    }
-
-    window.addEventListener("scroll", setActiveNav);
-    document.addEventListener("DOMContentLoaded", setActiveNav);
   </script>
 </body>
 </html>
